@@ -72,6 +72,26 @@ krt_comms_rebuild/        (Ordner mit .wav, .png)
 4. **Extras → Optionen → Addons → Plugins** — KRT Comms Rebuild aktivieren
 5. **Plugins → KRT Comms Rebuild → Funkverwaltung öffnen**
 
+### Hotkeys unter Linux (wichtig!)
+
+Die TS3-eigenen Hotkeys (**Optionen → Hotkeys**) feuern auf Linux **nur**,
+wenn das TS3-Fenster den Fokus hat. PTT während du im Spiel bist
+funktioniert damit nicht.
+
+Lösung: Das Plugin hat einen eigenen Tab **„Linux-Hotkeys"** in der
+Funkverwaltung (nur unter Linux sichtbar). Dort bindest du Tasten und
+Maustasten direkt über `evdev` — die feuern global, egal welches Fenster
+fokussiert ist.
+
+1. Funkverwaltung öffnen
+2. Tab **„Linux-Hotkeys"**
+3. Pro Aktion (PTT pro Funkgerät, Anklopfen, Broadcast-Gruppen, …) auf
+   „Aufnehmen" klicken und die gewünschte Taste/Maustaste drücken
+4. Modifier (Strg/Alt/Shift) werden automatisch mit erfasst
+
+Die TS3-Hotkey-Einstellung kannst du leer lassen — der Linux-Tab ersetzt
+sie.
+
 ---
 
 ## Berechtigung (wichtig)
