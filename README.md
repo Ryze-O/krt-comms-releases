@@ -65,6 +65,9 @@ krt_comms_rebuild_linux_amd64.so
 krt_comms_rebuild/        (Ordner mit .wav, .png)
 ```
 
+> **Update von älterer Version?** Genau dieselben Befehle. `cp -r` überschreibt
+> die alte `.so` und mergt den Assets-Ordner. Vorher nichts löschen.
+
 3. TS3 komplett schließen und neu starten
 4. **Extras → Optionen → Addons → Plugins** — KRT Comms Rebuild aktivieren
 5. **Plugins → KRT Comms Rebuild → Funkverwaltung öffnen**
