@@ -48,9 +48,21 @@ Dann:
    automatisch aufgeht, geht's auch manuell:
 
 ```bash
-# .ts3_plugin ist eine ZIP — manuell entpacken nach:
+# .ts3_plugin ist eine ZIP. Interne Struktur ist verschachtelt — wir
+# entpacken in einen Temp-Ordner und kopieren dann den korrekten Inhalt
+# nach ~/.ts3client/plugins:
 mkdir -p ~/.ts3client/plugins
-unzip krt_comms_rebuild_*_linux_amd64.ts3_plugin -d ~/.ts3client/plugins/
+TMP=$(mktemp -d)
+unzip krt_comms_rebuild_*_linux_amd64.ts3_plugin -d "$TMP"
+cp -r "$TMP"/plugins/* ~/.ts3client/plugins/
+rm -rf "$TMP"
+```
+
+Anschließend sollten in `~/.ts3client/plugins/` direkt liegen:
+
+```
+krt_comms_rebuild_linux_amd64.so
+krt_comms_rebuild/        (Ordner mit .wav, .png)
 ```
 
 3. TS3 komplett schließen und neu starten
