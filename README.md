@@ -49,28 +49,29 @@ Plugin-Ordner kopieren.**
 
 ### 1. Abhängigkeiten
 
-Das Plugin braucht **Qt5 SerialPort**, **Qt5 WebSockets** und **libevdev**.
-Qt5-Core/GUI/Network bringt der TeamSpeak-Client selbst mit; `qtbase` ziehen die
-SerialPort-Pakete automatisch mit. Such dir deine Distribution:
+Das Plugin braucht **Qt5** (Core, GUI, Widgets, Network, WebSockets, SerialPort)
+und **libevdev**. Anders als auf Windows bringt der TeamSpeak-Linux-Client diese
+Libs **nicht** mit — sie müssen vom System kommen. Such dir deine Distribution:
 
 **Debian / Ubuntu / Mint / Pop!_OS:**
 ```bash
-sudo apt install libqt5serialport5 libqt5websockets5 libevdev2
+sudo apt install libqt5core5a libqt5gui5 libqt5widgets5 libqt5network5 libqt5websockets5 libqt5serialport5 libevdev2
 ```
 
 **Fedora / RHEL / Nobara:**
 ```bash
-sudo dnf install qt5-qtserialport qt5-qtwebsockets libevdev
+sudo dnf install qt5-qtbase qt5-qtbase-gui qt5-qtwebsockets qt5-qtserialport libevdev
 ```
 
 **Arch / Manjaro / CachyOS / EndeavourOS:**
 ```bash
-sudo pacman -S qt5-serialport qt5-websockets libevdev
+sudo pacman -S qt5-base qt5-websockets qt5-serialport libevdev
 ```
+(Arch: `qt5-base` enthält Core/GUI/Widgets/Network in einem Paket.)
 
 **Bazzite / Fedora Silverblue / Kinoite (rpm-ostree-basiert):**
 ```bash
-sudo rpm-ostree install qt5-qtserialport qt5-qtwebsockets libevdev
+sudo rpm-ostree install qt5-qtbase qt5-qtbase-gui qt5-qtwebsockets qt5-qtserialport libevdev
 sudo systemctl reboot
 ```
 Der **Reboot ist Pflicht** — `rpm-ostree` aktiviert die Libs erst beim nächsten
