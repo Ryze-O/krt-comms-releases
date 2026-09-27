@@ -25,19 +25,56 @@ Dort findest du je Plattform eine Datei:
 | Windows   | `krt_comms_rebuild_<version>_x64.ts3_plugin`      |
 | Linux     | `krt_comms_rebuild_<version>_linux_amd64.ts3_plugin` |
 
+Dazu, falls du sie brauchst: das Stream-Deck-Plugin
+(`de.kartell.krt-comms.streamDeckPlugin`) samt Icon-Pack
+(`krt-comms-icons.streamDeckIconPack`), die Touch-Portal-Datei
+(`krt-comms-touchportal.tpp`) und das Mining-Zusatzprogramm
+(`krt_mining_sidecar.zip`).
+
 ---
 
 ## Installation — Windows (für Dummys)
 
-1. Datei `krt_comms_rebuild_<version>_x64.ts3_plugin` herunterladen
-2. **Doppelklick** auf die Datei
-3. TS3 fragt „Wollen Sie das Plugin installieren?" → **Ja**
-4. TS3 komplett schließen und neu starten
-5. Im TS3-Menü: **Extras → Optionen → Addons → Plugins** — KRT Comms Rebuild
-   muss aktiviert sein (Häkchen)
-6. Im TS3-Menü: **Plugins → KRT Comms Rebuild → Funkverwaltung öffnen**
+1. **TeamSpeak ganz beenden** — nicht nur das Fenster schließen. TS läuft sonst
+   unten rechts im Infobereich (neben der Uhr) weiter: Rechtsklick auf das
+   TS-Symbol → **Beenden**.
+2. Datei `krt_comms_rebuild_<version>_x64.ts3_plugin` herunterladen
+3. **Doppelklick** auf die Datei
+4. TS3 fragt „Wollen Sie das Plugin installieren?" → **Ja**
+5. TeamSpeak starten. Im TS3-Menü: **Extras → Optionen → Addons → Plugins** —
+   KRT Comms Rebuild muss aktiviert sein (Häkchen)
+6. Im TS3-Menü: **Plugins → KRT Comms Rebuild → Funkverwaltung**
 
-Fertig.
+Fertig. Die vollständige Anleitung steckt im Plugin selbst: Funkverwaltung →
+Seite **Hilfe**.
+
+### „Failed to install Add-On"?
+
+TS3 bietet dann an, es als Administrator zu versuchen — das scheitert meist
+auch. Ursache ist fast nie das Paket:
+
+1. **TeamSpeak läuft noch im Infobereich** und hält die Plugin-Datei fest. Das
+   ist mit Abstand der häufigste Fall. Dass es auch als Administrator
+   scheitert, spricht genau dafür: Ein Rechteproblem wäre damit weg, eine
+   gesperrte Datei nicht. TeamSpeak wie in Schritt 1 beenden, nochmal.
+2. **Datei entsperren.** Was aus Browser oder Discord kommt, markiert Windows
+   als „aus dem Internet". Rechtsklick auf die `.ts3_plugin`-Datei →
+   *Eigenschaften* → unten **Zulassen** anhaken → OK.
+3. **Download unvollständig?** Dateigröße mit der Angabe auf der
+   Release-Seite vergleichen.
+4. **Von Hand installieren** (geht immer, auch ohne Adminrechte):
+   `.ts3_plugin` in `.zip` umbenennen und entpacken, dann `Windows-Taste + R`
+   → `%APPDATA%\TS3Client\plugins` → Enter, und den **Inhalt** des entpackten
+   Ordners `plugins` dort hineinkopieren (vorhandenes überschreiben).
+
+### Umstieg vom alten KRT Comms
+
+Das Paket enthält einen **Original-Adapter**, der denselben Dateinamen trägt
+wie das alte KRT Comms (`krt_comms_win64.dll`). Die Installation ersetzt das
+alte Plugin also — über den Adapter hörst und erreichst du Leute, die noch das
+alte KRT Comms benutzen, trotzdem weiter. Deine alten Einstellungen werden
+nicht übernommen; Frequenzen trägst du einmal neu ein. Verschlüsselte
+Frequenzen funktionieren nur zwischen Nutzern des Rebuilds.
 
 ---
 
@@ -87,8 +124,9 @@ Start.
 
 1. TeamSpeak 3 schließen.
 2. Die heruntergeladene `.ts3_plugin` ist ein **ZIP-Archiv**. Mit einem
-   Archiv-Programm öffnen und die Datei `krt_comms_rebuild_linux_amd64.so`
-   **sowie** den Ordner `krt_comms_rebuild` in folgenden Ordner schieben:
+   Archiv-Programm öffnen und den **gesamten Inhalt** des Ordners `plugins`
+   (beide `.so`-Dateien **und** den Ordner `krt_comms_rebuild`) in folgenden
+   Ordner schieben:
    ```
    ~/.ts3client/plugins/
    ```
@@ -101,18 +139,18 @@ Start.
 3. **Updates** laufen genauso — einfach die Dateien überschreiben. Vorher nichts
    löschen.
 4. TeamSpeak 3 starten → **Extras → Optionen → Addons → Plugins** — KRT Comms
-   Rebuild aktivieren → **Plugins → KRT Comms Rebuild → Funkverwaltung öffnen**.
+   Rebuild aktivieren → **Plugins → KRT Comms Rebuild → Funkverwaltung**.
 
 ### Hotkeys unter Linux (wichtig!)
 
 Die TS3-eigenen Hotkeys (**Optionen → Hotkeys**) feuern auf Linux **nur**, wenn
 das TS3-Fenster den Fokus hat — fürs Spielen unbrauchbar.
 
-Lösung: Das Plugin hat einen eigenen Tab **„Linux-Hotkeys"** in der
+Lösung: Das Plugin hat eigene **Linux-Hotkeys** auf der Seite **Hotkeys** der
 Funkverwaltung (nur unter Linux sichtbar). Dort bindest du Tasten/Maustasten
 direkt über `evdev` — die feuern global, egal welches Fenster fokussiert ist.
 
-1. Funkverwaltung öffnen → Tab **„Linux-Hotkeys"**
+1. Funkverwaltung öffnen → Seite **Hotkeys** → Bereich **Linux-Hotkeys**
 2. Pro Aktion (PTT pro Funkgerät, Anklopfen, Broadcast-Gruppen, …) auf
    „Aufnehmen" klicken und die gewünschte Taste/Maustaste drücken
 3. Modifier (Strg/Alt/Shift) werden automatisch mit erfasst
@@ -128,12 +166,19 @@ direkt über `evdev` — die feuern global, egal welches Fenster fokussiert ist.
 > `input`-Gruppe ist, kann systemweit alle Tastatureingaben mitlesen — auf
 > einem Single-User-PC unbedenklich, auf geteilten Rechnern bedenken.
 
-Die TS3-Hotkey-Einstellung kannst du leer lassen — der Linux-Tab ersetzt sie.
+Die TS3-Hotkey-Einstellung kannst du leer lassen — die Linux-Hotkeys ersetzen sie.
+
+### Overlays hinter Vollbild-Spielen (KDE, GNOME)
+
+Ab v2.8.2 bleiben HUD und Overlays auch über Star Citizen im Vollbild sichtbar.
+Macht das Probleme, lässt es sich abschalten: **HUD Overlay → Interaktion →
+Über Vollbild-Spielen anzeigen**, danach TS3 neu starten.
 
 ### Deinstallation (Linux)
 
 ```bash
 rm -f ~/.ts3client/plugins/krt_comms_rebuild_linux_amd64.so
+rm -f ~/.ts3client/plugins/krt_comms_linux_amd64.so
 rm -rf ~/.ts3client/plugins/krt_comms_rebuild
 ```
 
@@ -146,10 +191,8 @@ einer Server-Gruppe mit `(KRT)` im Namen ist (z.B. „Lieutenant Commander
 (KRT) 8"). Ohne diese Gruppe siehst du das HUD und hörst Funk, kannst aber
 nichts senden.
 
-Wenn du sehen willst, in welchen Gruppen du bist:
-**Funkverwaltung → Info-Tab → „Server-Gruppen anzeigen…"** schreibt deine
-Mitgliedschaft + alle Server-Gruppen ins TS3-ClientLog (Extras → ClientLog,
-Channel-Filter `krt_comms`).
+In welchen Gruppen du bist, zeigt TeamSpeak selbst: dich im Channel-Baum
+anklicken, rechts stehen deine Server-Gruppen.
 
 Freischaltung läuft über den TS3-Server-Admin.
 
@@ -157,18 +200,19 @@ Freischaltung läuft über den TS3-Server-Admin.
 
 ## Updates
 
-Ab v1.8.8 prüft das Plugin selbst auf Updates. Wenn eine neuere Version
-verfügbar ist, erscheint beim TS3-Start ein Popup mit Download-Button —
-SaltyChat-Style. Einfach klicken, Datei runterladen, Doppelklick, fertig.
+Das Plugin prüft selbst auf Updates. Gibt es eine neuere Version, erscheint
+beim TS3-Start ein Hinweis mit Download-Knopf. Datei herunterladen, **TeamSpeak
+ganz beenden (auch im Infobereich)**, Doppelklick, fertig.
 Unter Linux: neue Dateien wie oben beschrieben über die alten kopieren.
 
 ---
 
 ## Hilfe & Bug-Reports
 
-- **TS3-ClientLog** (Extras → ClientLog, Filter `krt_comms`) enthält die
-  wichtigsten Diagnose-Meldungen.
-- **Bug melden:** In der Funkverwaltung → Info-Tab gibt's einen Button
-  „Bug melden", der einen vorausgefüllten Report mit Versions-/OS-Infos
-  in die Zwischenablage kopiert. Den dann im Discord/Forum posten.
+- **Anleitung:** im Plugin, Funkverwaltung → Seite **Hilfe**.
+- **Fehler melden:** Im TS3-Menü **Plugins → KRT Comms Rebuild → Log für ryze
+  exportieren** legt ein Paket auf deinen Desktop. Das mit einer kurzen
+  Beschreibung an ryze schicken. (Derselbe Knopf steht auch unter Hilfe →
+  Über KRT Comms Rebuild, daneben „Bug melden" für einen vorausgefüllten
+  Bericht.)
 - **Issues:** [github.com/Ryze-O/krt-comms-releases/issues](https://github.com/Ryze-O/krt-comms-releases/issues)
