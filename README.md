@@ -41,8 +41,9 @@ Dazu, falls du sie brauchst: das Stream-Deck-Plugin
 2. Datei `krt_comms_rebuild_<version>_x64.ts3_plugin` herunterladen
 3. **Doppelklick** auf die Datei
 4. TS3 fragt „Wollen Sie das Plugin installieren?" → **Ja**
-5. TeamSpeak starten. Im TS3-Menü: **Extras → Optionen → Addons → Plugins** —
-   KRT Comms Rebuild muss aktiviert sein (Häkchen)
+5. TeamSpeak starten. Im TS3-Menü: **Extras → Optionen → Erweiterungen → Plugins** —
+   bei **KRT Comms Rebuild** und **KRT Comms Original-Adapter** muss „Aktiviert“
+   stehen (der Adapter verbindet dich mit Nutzern des alten KRT Comms)
 6. Im TS3-Menü: **Plugins → KRT Comms Rebuild → Funkverwaltung**
 
 Fertig. Die vollständige Anleitung steckt im Plugin selbst: Funkverwaltung →
@@ -138,8 +139,9 @@ Start.
    ```
 3. **Updates** laufen genauso — einfach die Dateien überschreiben. Vorher nichts
    löschen.
-4. TeamSpeak 3 starten → **Extras → Optionen → Addons → Plugins** — KRT Comms
-   Rebuild aktivieren → **Plugins → KRT Comms Rebuild → Funkverwaltung**.
+4. TeamSpeak 3 starten → **Extras → Optionen → Erweiterungen → Plugins** — KRT Comms
+   Rebuild und KRT Comms Original-Adapter aktivieren → **Plugins → KRT Comms
+   Rebuild → Funkverwaltung**.
 
 ### Hotkeys unter Linux (wichtig!)
 
