@@ -29,7 +29,9 @@ Dazu, falls du sie brauchst: das Stream-Deck-Plugin
 (`de.kartell.krt-comms.streamDeckPlugin`) samt Icon-Pack
 (`krt-comms-icons.streamDeckIconPack`), die Touch-Portal-Datei
 (`krt-comms-touchportal.tpp`) und das Mining-Zusatzprogramm
-(`krt_mining_sidecar.zip`).
+(`krt_mining_sidecar_win.zip` für Windows: entpacken, `mining_sidecar.exe`
+starten, Anleitung liegt bei; `krt_mining_sidecar.zip` als Python-Skript für
+Linux).
 
 ---
 
